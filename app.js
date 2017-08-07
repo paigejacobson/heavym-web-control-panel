@@ -9,3 +9,6 @@ const osc = new OSC({ plugin: new OSC.BridgePlugin(config) })
 
 // Open our OSC port
 osc.open();
+osc.on('open', () => {
+  console.log("osc port open");
+})
