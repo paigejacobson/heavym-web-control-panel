@@ -3,6 +3,13 @@ var osc = new OSC(),
 
 redbutton.addEventListener('click', function(){
   console.log('red button clicked');
-  var imessage = new OSC.Message('/ShaderRedActivate', 127);
-  osc.send(imessage);
+  var myMessage = new OSC.Message('/ShaderRedActivate', 127);
+  console.log(myMessage);
+  osc.send(myMessage);
+});
+
+osc.open();
+
+osc.on('open', () => {
+  console.log('osc open');
 });
