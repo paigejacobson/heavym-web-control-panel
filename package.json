@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/paigejacobson/nodeosc/issues"
   },
-  "homepage": "https://github.com/paigejacobson/nodeosc#readme"
+  "homepage": "https://github.com/paigejacobson/nodeosc#readme",
+  "dependencies": {
+    "osc-js": "^1.0.3"
+  }
 }
