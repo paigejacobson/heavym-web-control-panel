@@ -14,32 +14,50 @@
   <main class="container-fluid">
     <div class="col-lg-12">
       <div class="row">
-        <h1> Title </h1>
+        <h1> Controller </h1>
       </div>
       <div class="col-lg-6">
         <div class="row">
           <h1> Buttons </h1>
-          <button id="toggle_red" class="btn btn-default">toggle red</button>
-          <button id="toggle_green" class="btn btn-default">toggle green</button>
-          <button id="toggle_blue" class="btn btn-default">toggle blue</button>
+          <div class="row">
+            <button id="toggle_red" class="btn btn-default btn-sm">toggle red</button>
+          </div>
+          <div class="row">
+            <button id="toggle_green" class="btn btn-default btn-sm">toggle green</button>
+          </div>
+          <div class="row">
+            <button id="toggle_blue" class="btn btn-default btn-sm">toggle blue</button>
+          </div>
+
         </div>
       </div>
       <div class="col-lg-6">
         <div class="row">
           <h1> Sliders </h1>
+          <div class="col-lg-6 col-lg-offset-3">
+            <div class="row">
+              <input class="sliders" type="range" min="0" max="100" value="0" onchange="Value1(this.value)" />
+              <input class="text" id="input1" value="0" />
+              <h3>Slider 1</h3>
+            </div>
+            <div class="row">
+
+              <input class="sliders" type="range" min="0" max="100" value="0" onchange="Value2(this.value)" />
+              <input class="text" id="input2" value="0" />
+              <h3>Slider 2</h3>
+            </div>
+            <div class="row">
+
+              <input class="sliders" type="range" min="0" max="100" value="0" onchange="Value3(this.value)" />
+              <input class="text" id="input3" value="0" />
+              <h3>Slider 3</h3>
+            </div>
+          </div>
         </div>
       </div>
-
-            <!-- <div class="col">
-              Buttons
-            </div>
-            <div class="col">
-              Sliders
-            </div> -->
-
-      </div>
+    </div>
   </main>
-  <script type-"text/javascript" src="./node_modules/osc-js/dist/osc.min.js"></script>
+  <script type- "text/javascript" src="./node_modules/osc-js/dist/osc.min.js"></script>
   <script src="main.js"></script>
 </body>
 

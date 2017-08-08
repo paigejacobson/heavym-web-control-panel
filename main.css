@@ -1,7 +1,15 @@
-.container-fluid {
+* {
+  margin: 0;
+  padding: 0;
+  background-color: Gray;
+}
+
+.container-fluid{
   border: 1px solid black;
+  text-align: center;
 }
 
 .row{
   border: 1px solid black;
+  margin: 3em 1em;
 }

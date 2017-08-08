@@ -5,8 +5,20 @@ redbutton.addEventListener('click', function(){
   console.log('red button clicked');
   var myMessage = new OSC.Message('/ShaderRedActivate', 127);
   console.log(myMessage);
-  osc.send(myMessage);
+  osc.send(myMessage, {host:"10.57.166.141"});
 });
+
+function Value1(newValue){
+	document.getElementById('input1').value = newValue;
+}
+
+function Value2(newValue){
+	document.getElementById('input2').value = newValue;
+}
+
+function Value3(newValue){
+	document.getElementById('input3').value = newValue;
+}
 
 osc.open();
 
