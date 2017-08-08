@@ -15,6 +15,21 @@ slider1.addEventListener('input', function(){
   span1.innerHTML = slider1.value;
 })
 
+/*
+  function to listen for event types that trigger
+  changes to the slider value, then send an OSC
+  message with that new value
+
+  the function should be able to take multiple
+  event types, and should be able to address the
+  rest of the components in the control object
+  without having to reference them by ID
+*/
+
+/*
+  function to listen for event types that trigger
+  a shader activation, then send the osc message
+*/
 
 osc.open();
 
