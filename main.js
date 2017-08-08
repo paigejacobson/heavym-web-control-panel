@@ -2,8 +2,8 @@ var osc = new OSC(),
   redbutton = document.getElementById('toggle_red');
 
 redbutton.addEventListener('click', function(){
-  console.log('red button clicked');
-  var myMessage = new OSC.Message('/ShaderRedActivate', 127);
+  console.log('shader activated');
+  var myMessage = new OSC.Message('/ShaderTwistActivate', 127);
   console.log(myMessage);
   osc.send(myMessage, {host:"10.57.166.141"});
 });
