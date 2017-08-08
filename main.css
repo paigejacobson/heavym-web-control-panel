@@ -1,15 +1,33 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: Gray;
+  background-color: rgb(222, 225, 229);
 }
 
-.container-fluid{
-  border: 1px solid black;
+h1{
   text-align: center;
+  margin: 1em 0em;
 }
 
-.row{
+.unit{
+  border: 1px solid rgb(170, 175, 183);
+  margin: 1em 2em;
+  padding: 1em;
+}
+
+span{
+  float: right;
+}
+
+.slider{
+  margin: 1em 0em;
+}
+
+/*.container-fluid{
+  border: 1px solid black;
+}*/
+
+/*.row{
   border: 1px solid black;
   margin: 3em 1em;
-}
+}*/
