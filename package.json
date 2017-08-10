@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/paigejacobson/nodeosc#readme",
   "dependencies": {
+    "live-server": "^1.2.0",
     "osc-js": "^1.0.3"
   }
 }
