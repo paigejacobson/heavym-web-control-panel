@@ -1,76 +1,137 @@
-var osc = new OSC();
+var osc = new OSC(),
+    clearButton = document.getElementById('clear');
 
-var sliderlist = ['Red', 'Green', 'Blue', 'Contraste', 'Convergence', 'Twist', 'Glow', 'clear']
-var buttonlist = ['RedActivate','GreenActivate','BlueActivate','ContrasteActivate','ConvergenceActivate','TwistActivate', 'GlowActivate'];
+var rangeVars = {};
+var toggleVars = {};
 
-// loop through list of all sliders to generate a message for each
-for (var i = 0; i < sliderlist.length; i++){
-  var element = sliderlist[i];
-  var message = '/Shader' + element;
-  activateOscMessageSlider(element, message);
+var effects = [
+  'Red','Green','Blue','BlackAndWhite','Blur','Contraste','Convergence','CutSlider',
+  'Glow','Noise','OldTv','Shaker','Slitscan','Strobe','Swell','Twist'
+];
+
+// Declare effects sliders and toggles
+for(var i = 0; i < effects.length; i++){
+  rangeVars[effects[i] + 'Range'] = document.getElementById(effects[i] + 'Range');
+  toggleVars[effects[i] + 'Toggle'] = document.getElementById(effects[i] + 'Toggle');
 }
 
-// loop through list of all buttons to generate a message for each
-for (var i = 0; i < buttonlist.length; i++){
-  var element = buttonlist[i];
-  var message = '/Shader' + element;
-  activateOscMessage(element, message);
+// Create the slider instances
+for (const key of Object.keys(rangeVars)) {
+  var channelName = rangeVars[key].id.split('Range')[0];
+  inputChangeOscMessage(rangeVars[key], 'input', '/Shader' + channelName);
 }
 
-/*
-  function to listen for event types that trigger
-  changes to the slider value, then send an OSC
-  message with that new value
+// Create the toggle instances
+for (const key of Object.keys(toggleVars)) {
+  var channelName = toggleVars[key].id.split('Toggle')[0];
+  activateOscMessage(toggleVars[key], 'click', '/Shader' + channelName + 'Activate');
+}
 
-  the function should be able to take multiple
-  event types, and should be able to address the
-  rest of the components in the control object
-  without having to reference them by ID
-*/
-function activateOscMessageSlider(button, message){
-    var slider = document.getElementById(element);
-    var spanid = element + '_span';
-    var span = document.getElementById(spanid);
-    slider.addEventListener('input', function(){
-      span.innerHTML = slider.value;
-      console.log('slider activated');
-      var myMessage = new OSC.Message(message, parseInt(slider.value));
-      console.log(myMessage);
-      osc.send(myMessage);
-    })
-  }
-
-/*
-  function to listen for event types that trigger
-  a shader activation, then send the osc message
-*/
-function activateOscMessage(button, message){
-    var button = document.getElementById(element);
-    button.addEventListener('click', function(){
-      console.log('shader activated');
-      var myMessage = new OSC.Message(message, 127);
-      console.log(myMessage);
-      osc.send(myMessage);
-    })
-  }
-
-activateOscMessageClear('Clear', sliderlist);
-
-
-function activateOscMessageClear(id, sliderlist){
-  var clear = document.getElementById(id);
-  clear.addEventListener('click',function(){
-    for (var i = 0; i < sliderlist.length; i++){
-      var element = sliderlist[i];
-      var message = '/Shader' + element;
-      var myMessage = new OSC.Message(message, 0);
-      osc.send(myMessage);
+// Listen for changes to sliders, send OSC message
+function inputChangeOscMessage(listenTo, eventType, command){
+  listenTo.addEventListener(eventType, function(){
+    var inputVal = listenTo.value;
+    var parentEl = listenTo.parentNode;
+    var children = parentEl.childNodes;
+    for(var i = 0; i < children.length; i++){
+      if (children[i].className == 'slider-value') {
+        children[i].innerHTML = inputVal;
+        break;
+      }
     }
-  })
+    var message = new OSC.Message(command, parseInt(inputVal));
+    osc.send(message);
+  });
 }
 
-osc.open();
+// Listen for changes to buttons, send OSC activation message
+function activateOscMessage(listenTo, eventType, command){
+  listenTo.addEventListener(eventType, function(){
+    console.log('activate msg');
+    var message = new OSC.Message(command, 127);
+    osc.send(message);
+  });
+}
 
-osc.on('open', () => {
-  console.log('osc open');
+// Set sliders to random values when "random colors" is selected
+function rangeRandom(){
+  var allSliders = document.getElementsByTagName('input');
+  for(var i = 0; i < allSliders.length; i++){
+    if(allSliders[i].className == 'colorRange'){
+      allSliders[i].value = getRandomRange(0, 127);
+      allSliders[i].dispatchEvent(inputEvent);
+    }
+  }
+}
+
+// Make input events bubble up
+var inputEvent = new Event('input', {
+    'bubbles': true,
+    'cancelable': true
 });
+
+// Get random numbers in a range
+function getRandomRange(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+// Random Color Ranger
+var startRandomColors = document.getElementById('startRandomColors');
+var stopRandomColors = document.getElementById('stopRandomColors');
+
+startRandomColors.addEventListener('click', function(){
+  window.randomColorInterval = setInterval(function(){
+    rangeRandom();
+  }, 1000);
+});
+
+stopRandomColors.addEventListener('click', function(){
+  clearInterval(window.randomColorInterval);
+});
+
+// Clear Inputs
+clearButton.addEventListener('click', function(){
+  redRange.value = 127;
+  greenRange.value = 127;
+  blueRange.value = 127;
+  initRanges();
+  resetColors();
+});
+
+function resetColors(){
+  var clearRed = new OSC.Message('/ShaderRed', 127);
+  var clearGreen = new OSC.Message('/ShaderGreen', 127);
+  var clearBlue = new OSC.Message('/ShaderBlue', 127);
+  osc.send(clearRed);
+  osc.send(clearGreen);
+  osc.send(clearBlue);
+}
+
+// Init Toggle Function
+function initToggles(){
+  for (const key of Object.keys(toggleVars)) {
+    var effectName = key.split('Toggle')[0];
+    var command = '/Shader' + effectName + 'Activate';
+    var message = new OSC.Message(command, 127);
+    osc.send(message);
+  }
+}
+
+// Init Slider Function
+function initRanges(){
+  for (const key of Object.keys(rangeVars)) {
+    var effectName = key.split('Range')[0];
+    var command = '/Shader' + effectName;
+    var message = new OSC.Message(command, 0);
+    osc.send(message);
+  }
+}
+
+// OSC Functions
+osc.on('open', function(){
+  initToggles();
+  initRanges();
+  resetColors();
+});
+
+osc.open(); // connect by default to ws://localhost:8080

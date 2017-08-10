@@ -1,119 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css "">
-  <link rel="stylesheet" href="main.css">
-  <title>Document</title>
+  <title>OSC Control Panel</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="/main.css">
 </head>
-
 <body>
-  <main class="container-fluid">
-    <div class="col-lg-12">
-      <div class="row">
-        <h1> HeavyM OSC Control Panel </h1>
-      </div>
-
-      <div class="row">
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Red</h4>
-            <input class="slider" id="Red" type="range" min="0" max="127" value="0" />
-            <span class="slider-value" id="Red_span">0</span>
-            <button id="RedActivate" class="btn btn-default btn-sm">Toggle Red</button>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Green</h4>
-            <input class="slider" id="Green" type="range" min="0" max="127" value="0" />
-            <span class="slider-value" id="Green_span">0</span>
-            <button id="GreenActivate" class="btn btn-default btn-sm">Toggle Green</button>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Blue</h4>
-            <input class="slider" id="Blue" type="range" min="0" max="127" value="0" />
-            <span class="slider-value" id="Blue_span">0</span>
-            <button id="BlueActivate" class="btn btn-default btn-sm">Toggle Blue</button>
-          </div>
-        </div>
-
-      </div>
-
-
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Contrast</h4>
-            <input class="slider" id="Contraste" type="range" min="0" max="127" value="0" />
-            <span class="slider-value" id="Contraste_span">0</span>
-            <button id="ContrasteActivate" class="btn btn-default btn-sm">Toggle Contrast</button>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Convergence</h4>
-            <input class="slider" id="Convergence" type="range" min="0" max="127" value="0" />
-            <span class="slider-value" id="Convergence_span">0</span>
-            <button id="ConvergenceActivate" class="btn btn-default btn-sm">Toggle Convergence</button>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Twister</h4>
-            <input class="slider" id="Twist" type="range" min="0" max="127" value="0" />
-            <span class="slider-value" id="Twist_span">0</span>
-            <button id="TwistActivate" class="btn btn-default btn-sm">Toggle Twister</button>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="row">
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Glow</h4>
-            <input class="slider" id="Glow" type="range" min="0" max="127" value="0" />
-            <span class="slider-value" id="Glow_span">0</span>
-            <button id="GlowActivate" class="btn btn-default btn-sm">Toggle Glow</button>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Clear Effects</h4>
-            <button id="clear" class="btn btn-default btn-sm">Clear</button>
-          </div>
-        </div>
-
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Random Colors</h4>
-            <button id="start_random_colors" class="btn btn-default btn-sm">Start Random Colors</button>
-            <br />
-            <button id="stop_random_colors" class="btn btn-default btn-sm">Stop Random Colors</button>
-          </div>
-        </div>
-
-      </div>
-
+  <div class="container-fluid">
+    <div id="title-row" class="row">
+      <h1>HeavyM OSC Control Panel</h1>
     </div>
 
-  </main>
-  <script type- "text/javascript" src="./node_modules/osc-js/dist/osc.min.js"></script>
+    <div class="row">
+      <div class="col-md-10 col-md-push-1">
+        <section class="row">
+          <div class="col-md-12 control-row-title">
+            <h4>RGB Color Controls</h4>
+          </div>
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="redRange">Red</label>
+              <input type="range" min="0" max="127" id="RedRange" name="redRange" value="100" class="colorRange">
+              <button id="RedToggle" class="btn btn-default">Toggle Red</button>
+              <span class="slider-value">100</span>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="greenRange">Green</label>
+              <input type="range" min="0" max="127" id="GreenRange" name="greenRange" value="100" class="colorRange">
+              <button id="GreenToggle" class="btn btn-default">Toggle Green</button>
+              <span class="slider-value">100</span>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="blueRange">Blue</label>
+              <input type="range" min="0" max="127" id="BlueRange" name="blueRange" value="100" class="colorRange">
+              <button id="BlueToggle" class="btn btn-default">Toggle Blue</button>
+              <span class="slider-value">100</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="row">
+          <div class="col-md-12 control-row-title">
+            <h4>Shader Controls</h4>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="blackAndWhiteRange">Black &amp; White</label>
+              <input type="range" min="0" max="127" id="BlackAndWhiteRange" name="blackAndWhiteRange" value="0">
+              <button id="BlackAndWhiteToggle" class="btn btn-default">Toggle Black &amp; White</button>
+              <span class="slider-value">0</span>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="blurRange">Blur</label>
+              <input type="range" min="0" max="127" id="BlurRange" name="blurRange" value="0">
+              <button id="BlurToggle" class="btn btn-default">Toggle Blur</button>
+              <span class="slider-value">0</span>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="contrastRange">Contrast</label>
+              <input type="range" min="0" max="127" id="ContrasteRange" name="contrastRange" value="0">
+              <button id="ContrasteToggle" class="btn btn-default">Toggle Contrast</button>
+              <span class="slider-value">0</span>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="convergenceRange">Convergence</label>
+              <input type="range" min="0" max="127" id="ConvergenceRange" name="convergenceRange" value="0">
+              <button id="ConvergenceToggle" class="btn btn-default">Toggle Convergence</button>
+              <span class="slider-value">0</span>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="cutSliderRange">Cut Slider</label>
+              <input type="range" min="0" max="127" id="CutSliderRange" name="cutSliderRange" value="0">
+              <button id="CutSliderToggle" class="btn btn-default">Toggle Cut Slider</button>
+              <span class="slider-value">0</span>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="glowRange">Glow</label>
+              <input type="range" min="0" max="127" id="GlowRange" name="glowRange" value="0">
+              <button id="GlowToggle" class="btn btn-default">Toggle Glow</button>
+              <span class="slider-value">0</span>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="noiseRange">Noise</label>
+              <input type="range" min="0" max="127" id="NoiseRange" name="noiseRange" value="0">
+              <button id="NoiseToggle" class="btn btn-default">Toggle Noise</button>
+              <span class="slider-value">0</span>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="oldTvRange">Old TV</label>
+              <input type="range" min="0" max="127" id="OldTvRange" name="oldTvRange" value="0">
+              <button id="OldTvToggle" class="btn btn-default">Toggle Old TV</button>
+              <span class="slider-value">0</span>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="shakerRange">Shaker</label>
+              <input type="range" min="0" max="127" id="ShakerRange" name="shakerRange" value="0">
+              <button id="ShakerToggle" class="btn btn-default">Toggle Shaker</button>
+              <span class="slider-value">0</span>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="slitscanRange">Slitscan</label>
+              <input type="range" min="0" max="127" id="SlitscanRange" name="slitscanRange" value="0">
+              <button id="SlitscanToggle" class="btn btn-default">Toggle Slitscan</button>
+              <span class="slider-value">0</span>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="strobeRange">Strobe</label>
+              <input type="range" min="0" max="127" id="StrobeRange" name="strobeRange" value="0">
+              <button id="StrobeToggle" class="btn btn-default">Toggle Strobe</button>
+              <span class="slider-value">0</span>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="swellRange">Swell</label>
+              <input type="range" min="0" max="127" id="SwellRange" name="swellRange" value="0">
+              <button id="SwellToggle" class="btn btn-default">Toggle Swell</button>
+              <span class="slider-value">0</span>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="twistRange">Twist</label>
+              <input type="range" min="0" max="127" id="TwistRange" name="twistRange" value="0">
+              <button id="TwistToggle" class="btn btn-default">Toggle Twist</button>
+              <span class="slider-value">0</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="row">
+          <div class="col-md-12 control-row-title">
+            <h5>Helper Controls</h5>
+          </div>
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="clear">Clear Effects</label>
+              <br/>
+              <button id="clear" class="btn btn-default" name="clear">Clear</button>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="randomColors">Random Colors</label>
+              <br/>
+              <button id="startRandomColors" class="btn btn-default" name="randomColors">Start</button>
+              <button id="stopRandomColors" class="btn btn-default" name="stopRandomColors">Stop</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="./node_modules/osc-js/dist/osc.min.js"></script>
   <script src="main.js"></script>
 </body>
-
 </html>
