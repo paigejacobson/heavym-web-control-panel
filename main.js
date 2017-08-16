@@ -1,7 +1,7 @@
 window.onload = function(){
 
-  // var osc = new OSC(),
-  //     clearButton = document.getElementById('clear');
+  var osc = new OSC(),
+      clearButton = document.getElementById('clear');
   //
   // var rangeVars = {};
   // var toggleVars = {};
@@ -129,12 +129,12 @@ window.onload = function(){
   //   }
   // }
   //
-  // // OSC Functions
-  // osc.on('open', function(){
-  //   initToggles();
-  //   initRanges();
-  //   resetColors();
-  // });
+  // OSC Functions
+  osc.on('open', function(){
+    // initToggles();
+    // initRanges();
+    // resetColors();
+  });
 
-  // osc.open(); // connect by default to ws://localhost:8080
+  osc.open(); // connect by default to ws://localhost:8080
 };
