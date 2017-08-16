@@ -1,8 +1,8 @@
 <effectcontrol class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
   <div class="controls">
-    <label for="redRange"><yield/></label>
-    <input type="range" min="0" max="127" id="RedRange" name="redRange" value="100" class="colorRange">
-    <button id="RedToggle" class="btn btn-default">Toggle Red</button>
+    <label for="<yield from='effect'/>Range"><yield from='effect'/></label>
+    <input type="range" min="0" max="127" id="<yield from='effect'/>Range" name="<yield from='effect'/>Range" value="<yield from='value'/>" class="colorRange">
+    <button id="<yield from='effect'/>Toggle" class="btn btn-default"> Toggle <yield from='effect'/> </button>
     <span class="slider-value">100</span>
   </div>
 
