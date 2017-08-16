@@ -18,10 +18,11 @@
         <section class="row">
           <div class="col-md-12 control-row-title">
             <h4>RGB Color Controls</h4>
+          </div>
 
-          <oscControl>
+          <effectcontrol>
             red
-          </oscControl>
+          </effectcontrol>
 
           <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
             <div class="controls">
@@ -191,9 +192,9 @@
     </div>
   </div>
 
-  <script src="oscControl.tag" type="riot/tag"></script>
+  <script src="effectControl.tag" type="riot/tag"></script>
   <script>
-  riot.mount("oscControl");
+    riot.mount("effectControl");
   </script>
 
   <script type="text/javascript" src="./node_modules/osc-js/dist/osc.min.js"></script>

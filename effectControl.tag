@@ -1,6 +1,6 @@
 
- <oscControl class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-
+ <effectcontrol>
+   <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
      <div class="controls">
 
        <label for="redRange">{yield}</label>
@@ -8,5 +8,5 @@
        <button id="RedToggle" class="btn btn-default">Toggle Red</button>
        <span class="slider-value">100</span>
      </div>
-
- </oscControl>
+   </div>
+ </effectcontrol>
