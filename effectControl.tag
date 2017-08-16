@@ -2,7 +2,7 @@
   <div class="controls">
     <label for="{ this.opts.effect }Range">{ this.opts.effect }</label>
     <input ref="rangeSlider" type="range" min="0" max="127" id="{ this.opts.effect }Range" name="{ this.opts.effect }Range" value="{ this.opts.effectValue }" class="colorRange">
-    <button id="{ this.opts.effect }Toggle" class="btn btn-default"> Toggle { this.opts.effect } </button>
+    <button ref="toggleButton" id="{ this.opts.effect }Toggle" class="btn btn-default"> Toggle { this.opts.effect } </button>
     <span class="slider-value">{ this.opts.effectValue }</span>
   </div>
 
@@ -34,14 +34,20 @@
 
   <script type="text/javascript">
       this.on('mount', function(e){
-        console.log( this.opts.effect );
         var that = this;
 
         this.refs.rangeSlider.oninput = function(e){
-          console.log(e.target.value);
+          var inputVal = e.target.value;
           var command = '/Shader' + that.opts.effect;
-          console.log(command);
-        };
+          var message = new OSC.Message(command, parseInt(inputVal));
+          window.osc.send(message);
+        }
+
+        this.refs.toggleButton.onclick = function(e){
+          var command = '/Shader' + that.opts.effect + 'Activate';
+          var message = new OSC.Message(command, 127);
+          window.osc.send(message);
+        }
       });
   </script>
 </effectcontrol>
