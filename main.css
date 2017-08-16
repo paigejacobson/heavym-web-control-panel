@@ -17,27 +17,3 @@ html, body{
   margin-top:4em;
   padding-bottom:0.5em;
 }
-
-.control-container{
-  margin-top:2em;
-}
-
-.control-container .controls{
-  border:1px solid #b6b6b6;
-  padding:1em;
-  background:#EFEFEF;
-}
-
-.slider-value{
-  float:right;
-  font-weight:700;
-  margin-top:1.5em;
-}
-
-.control-container .btn{
-  margin-top:1em;
-}
-
-.button-container{
-  padding:1em 10px;
-}
