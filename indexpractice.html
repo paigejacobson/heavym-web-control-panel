@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>OSC Control Panel</title>
-  <script src="riotAndCompiler.js"></script>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Title!</title>
+  <script src="riotAndcompiler.js"></script>
 </head>
 <body>
   <div class="container-fluid">
@@ -18,10 +18,20 @@
         <section class="row">
           <div class="col-md-12 control-row-title">
             <h4>RGB Color Controls</h4>
+          </div>
 
-          <oscControl>
-            red
-          </oscControl>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+
+              <button1 property="Red" toggle="Toggle Red"value=100>
+                <button1>
+              <!-- <label for="redRange">Red</label>
+              <input type="range" min="0" max="127" id="RedRange" name="redRange" value="100" class="colorRange">
+              <button id="RedToggle" class="btn btn-default">Toggle Red</button>
+              <span class="slider-value">100</span> -->
+            </div>
+          </div>
 
           <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
             <div class="controls">
@@ -157,10 +167,12 @@
 
           <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
             <div class="controls">
+
               <label for="twistRange">Twist</label>
               <input type="range" min="0" max="127" id="TwistRange" name="twistRange" value="0">
               <button id="TwistToggle" class="btn btn-default">Toggle Twist</button>
               <span class="slider-value">0</span>
+
             </div>
           </div>
         </section>
@@ -191,12 +203,15 @@
     </div>
   </div>
 
-  <script src="oscControl.tag" type="riot/tag"></script>
-  <script>
-  riot.mount("oscControl");
-  </script>
-
   <script type="text/javascript" src="./node_modules/osc-js/dist/osc.min.js"></script>
-  <script src="main.js"></script>
+  <script src="button1.tag" type="riot/tag"></script>
+  <script>
+    riot.mount("button1");
+  </script>
+</body>
+
+
+
+
 </body>
 </html>
