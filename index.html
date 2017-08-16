@@ -25,23 +25,16 @@
             <yield to="value">100</yield>
           </effectcontrol>
 
-          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-            <div class="controls">
-              <label for="greenRange">Green</label>
-              <input type="range" min="0" max="127" id="GreenRange" name="greenRange" value="100" class="colorRange">
-              <button id="GreenToggle" class="btn btn-default">Toggle Green</button>
-              <span class="slider-value">100</span>
-            </div>
-          </div>
+          <effectcontrol>
+            <yield to="effect">Green</yield>
+            <yield to="value">100</yield>
+          </effectcontrol>
 
-          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-            <div class="controls">
-              <label for="blueRange">Blue</label>
-              <input type="range" min="0" max="127" id="BlueRange" name="blueRange" value="100" class="colorRange">
-              <button id="BlueToggle" class="btn btn-default">Toggle Blue</button>
-              <span class="slider-value">100</span>
-            </div>
-          </div>
+          <effectcontrol>
+            <yield to="effect">Blue</yield>
+            <yield to="value">100</yield>
+          </effectcontrol>
+
         </section>
 
         <section class="row">
@@ -49,122 +42,70 @@
             <h4>Shader Controls</h4>
           </div>
 
-          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-            <div class="controls">
-              <label for="blackAndWhiteRange">Black &amp; White</label>
-              <input type="range" min="0" max="127" id="BlackAndWhiteRange" name="blackAndWhiteRange" value="0">
-              <button id="BlackAndWhiteToggle" class="btn btn-default">Toggle Black &amp; White</button>
-              <span class="slider-value">0</span>
-            </div>
-          </div>
+          <effectcontrol>
+            <yield to="effect">BlackAndWhite</yield>
+            <yield to="value">0</yield>
+          </effectcontrol>
 
-          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-            <div class="controls">
-              <label for="blurRange">Blur</label>
-              <input type="range" min="0" max="127" id="BlurRange" name="blurRange" value="0">
-              <button id="BlurToggle" class="btn btn-default">Toggle Blur</button>
-              <span class="slider-value">0</span>
-            </div>
-          </div>
+          <effectcontrol>
+            <yield to="effect">Blur</yield>
+            <yield to="value">0</yield>
+          </effectcontrol>
 
-          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-            <div class="controls">
-              <label for="contrastRange">Contrast</label>
-              <input type="range" min="0" max="127" id="ContrasteRange" name="contrastRange" value="0">
-              <button id="ContrasteToggle" class="btn btn-default">Toggle Contrast</button>
-              <span class="slider-value">0</span>
-            </div>
-          </div>
+          <effectcontrol>
+            <yield to="effect">Contraste</yield>
+            <yield to="value">0</yield>
+          </effectcontrol>
 
-          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-            <div class="controls">
-              <label for="convergenceRange">Convergence</label>
-              <input type="range" min="0" max="127" id="ConvergenceRange" name="convergenceRange" value="0">
-              <button id="ConvergenceToggle" class="btn btn-default">Toggle Convergence</button>
-              <span class="slider-value">0</span>
-            </div>
-          </div>
+          <effectcontrol>
+            <yield to="effect">Convergence</yield>
+            <yield to="value">0</yield>
+          </effectcontrol>
 
-          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-            <div class="controls">
-              <label for="cutSliderRange">Cut Slider</label>
-              <input type="range" min="0" max="127" id="CutSliderRange" name="cutSliderRange" value="0">
-              <button id="CutSliderToggle" class="btn btn-default">Toggle Cut Slider</button>
-              <span class="slider-value">0</span>
-            </div>
-          </div>
+          <effectcontrol>
+            <yield to="effect">CutSlider</yield>
+            <yield to="value">0</yield>
+          </effectcontrol>
 
-          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-            <div class="controls">
-              <label for="glowRange">Glow</label>
-              <input type="range" min="0" max="127" id="GlowRange" name="glowRange" value="0">
-              <button id="GlowToggle" class="btn btn-default">Toggle Glow</button>
-              <span class="slider-value">0</span>
-            </div>
-          </div>
+          <effectcontrol>
+            <yield to="effect">Glow</yield>
+            <yield to="value">0</yield>
+          </effectcontrol>
 
-          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-            <div class="controls">
-              <label for="noiseRange">Noise</label>
-              <input type="range" min="0" max="127" id="NoiseRange" name="noiseRange" value="0">
-              <button id="NoiseToggle" class="btn btn-default">Toggle Noise</button>
-              <span class="slider-value">0</span>
-            </div>
-          </div>
+          <effectcontrol>
+            <yield to="effect">Noise</yield>
+            <yield to="value">0</yield>
+          </effectcontrol>
 
-          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-            <div class="controls">
-              <label for="oldTvRange">Old TV</label>
-              <input type="range" min="0" max="127" id="OldTvRange" name="oldTvRange" value="0">
-              <button id="OldTvToggle" class="btn btn-default">Toggle Old TV</button>
-              <span class="slider-value">0</span>
-            </div>
-          </div>
+          <effectcontrol>
+            <yield to="effect">OldTv</yield>
+            <yield to="value">0</yield>
+          </effectcontrol>
 
-          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-            <div class="controls">
-              <label for="shakerRange">Shaker</label>
-              <input type="range" min="0" max="127" id="ShakerRange" name="shakerRange" value="0">
-              <button id="ShakerToggle" class="btn btn-default">Toggle Shaker</button>
-              <span class="slider-value">0</span>
-            </div>
-          </div>
+          <effectcontrol>
+            <yield to="effect">Shaker</yield>
+            <yield to="value">0</yield>
+          </effectcontrol>
 
-          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-            <div class="controls">
-              <label for="slitscanRange">Slitscan</label>
-              <input type="range" min="0" max="127" id="SlitscanRange" name="slitscanRange" value="0">
-              <button id="SlitscanToggle" class="btn btn-default">Toggle Slitscan</button>
-              <span class="slider-value">0</span>
-            </div>
-          </div>
+          <effectcontrol>
+            <yield to="effect">Slitscan</yield>
+            <yield to="value">0</yield>
+          </effectcontrol>
 
-          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-            <div class="controls">
-              <label for="strobeRange">Strobe</label>
-              <input type="range" min="0" max="127" id="StrobeRange" name="strobeRange" value="0">
-              <button id="StrobeToggle" class="btn btn-default">Toggle Strobe</button>
-              <span class="slider-value">0</span>
-            </div>
-          </div>
+          <effectcontrol>
+            <yield to="effect">Strobe</yield>
+            <yield to="value">0</yield>
+          </effectcontrol>
 
-          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-            <div class="controls">
-              <label for="swellRange">Swell</label>
-              <input type="range" min="0" max="127" id="SwellRange" name="swellRange" value="0">
-              <button id="SwellToggle" class="btn btn-default">Toggle Swell</button>
-              <span class="slider-value">0</span>
-            </div>
-          </div>
+          <effectcontrol>
+            <yield to="effect">Swell</yield>
+            <yield to="value">0</yield>
+          </effectcontrol>
 
-          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
-            <div class="controls">
-              <label for="twistRange">Twist</label>
-              <input type="range" min="0" max="127" id="TwistRange" name="twistRange" value="0">
-              <button id="TwistToggle" class="btn btn-default">Toggle Twist</button>
-              <span class="slider-value">0</span>
-            </div>
-          </div>
+          <effectcontrol>
+            <yield to="effect">Twist</yield>
+            <yield to="value">0</yield>
+          </effectcontrol>
         </section>
 
         <section class="row">
