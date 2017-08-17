@@ -8,13 +8,14 @@
 
   <style>
     .control-container{
-      margin-top:2em;
+      margin-top:2em !important;
     }
 
-    .control-container .controls{
+    .controls{
       border:1px solid #b6b6b6;
       padding:1em;
       background:#EFEFEF;
+      margin-top:2em;
     }
 
     .slider-value{
@@ -23,7 +24,7 @@
       margin-top:1.5em;
     }
 
-    .control-container .btn{
+    .btn{
       margin-top:1em;
     }
 
