@@ -1,119 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css "">
-  <link rel="stylesheet" href="main.css">
-  <title>Document</title>
+  <title>OSC Control Panel</title>
+  <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./src/css/main.css">
+  <script type="text/javascript" src="./node_modules/riot/riot.min.js"></script>
+  <script type="text/javascript" src="./node_modules/osc-js/dist/osc.min.js"></script>
+  <script>
+    window.osc = new OSC();
+    window.osc.open();
+
+    window.osc.on('open', function(){
+      console.log('OSC opened');
+    });
+  </script>
 </head>
-
 <body>
-  <main class="container-fluid">
-    <div class="col-lg-12">
-      <div class="row">
-        <h1> HeavyM OSC Control Panel </h1>
-      </div>
-
-      <div class="row">
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Red</h4>
-            <input class="slider" id="Red" type="range" min="0" max="127" value="0" />
-            <span id="Red_span">0</span>
-            <button id="RedActivate" class="btn btn-default btn-sm">Toggle Red</button>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Green</h4>
-            <input class="slider" id="Green" type="range" min="0" max="127" value="0" />
-            <span id="Green_span">0</span>
-            <button id="GreenActivate" class="btn btn-default btn-sm">Toggle Green</button>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Blue</h4>
-            <input class="slider" id="Blue" type="range" min="0" max="127" value="0" />
-            <span id="Blue_span">0</span>
-            <button id="BlueActivate" class="btn btn-default btn-sm">Toggle Blue</button>
-          </div>
-        </div>
-
-      </div>
-
-
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Contrast</h4>
-            <input class="slider" id="Contraste" type="range" min="0" max="127" value="0" />
-            <span id="Contraste_span">0</span>
-            <button id="ContrasteActivate" class="btn btn-default btn-sm">Toggle Contrast</button>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Convergence</h4>
-            <input class="slider" id="Convergence" type="range" min="0" max="127" value="0" />
-            <span id="Convergence_span">0</span>
-            <button id="ConvergenceActivate" class="btn btn-default btn-sm">Toggle Convergence</button>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Twister</h4>
-            <input class="slider" id="Twist" type="range" min="0" max="127" value="0" />
-            <span id="Twist_span">0</span>
-            <button id="TwistActivate" class="btn btn-default btn-sm">Toggle Twister</button>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="row">
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Glow</h4>
-            <input class="slider" id="Glow" type="range" min="0" max="127" value="0" />
-            <span id="Glow_span">0</span>
-            <button id="GlowActivate" class="btn btn-default btn-sm">Toggle Glow</button>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Clear Effects</h4>
-            <button id="clear" class="btn btn-default btn-sm">Clear</button>
-          </div>
-        </div>
-
-
-        <div class="col-lg-4">
-          <div class="unit">
-            <h4>Random Colors</h4>
-            <button id="start_random_colors" class="btn btn-default btn-sm">Start Random Colors</button>
-            <br />
-            <button id="stop_random_colors" class="btn btn-default btn-sm">Stop Random Colors</button>
-          </div>
-        </div>
-
-      </div>
-
+  <div class="container-fluid">
+    <div id="title-row" class="row">
+      <h1>HeavyM OSC Control Panel</h1>
     </div>
 
-  </main>
-  <script type- "text/javascript" src="./node_modules/osc-js/dist/osc.min.js"></script>
-  <script src="main.js"></script>
-</body>
+    <div class="row">
+      <div class="col-md-10 col-md-push-1">
+        <section class="row">
+          <div class="col-md-12 control-row-title">
+            <h4>RGB Color Controls</h4>
+          </div>
 
+          <effectcontrol effect="Red" value="100"></effectcontrol>
+
+          <effectcontrol effect="Green" value="100"></effectcontrol>
+
+          <effectcontrol effect="Blue" value="100"></effectcontrol>
+
+        </section>
+
+        <section class="row">
+          <div class="col-md-12 control-row-title">
+            <h4>Shader Controls</h4>
+          </div>
+
+          <effectcontrol effect="BlackAndWhite" value="0"></effectcontrol>
+
+          <effectcontrol effect="Blur" value="0"></effectcontrol>
+
+          <effectcontrol effect="Contraste" value="0"></effectcontrol>
+
+          <effectcontrol effect="Convergence" value="0"></effectcontrol>
+
+          <effectcontrol effect="CutSlider" value="0"></effectcontrol>
+
+          <effectcontrol effect="Glow" value="0"></effectcontrol>
+
+          <effectcontrol effect="Noise" value="0"></effectcontrol>
+
+          <effectcontrol effect="OldTv" value="0"></effectcontrol>
+
+          <effectcontrol effect="Shaker" value="0"></effectcontrol>
+
+          <effectcontrol effect="Slitscan" value="0"></effectcontrol>
+
+          <effectcontrol effect="Strobe" value="0"></effectcontrol>
+
+          <effectcontrol effect="Swell" value="0"></effectcontrol>
+
+          <effectcontrol effect="Twist" value="0"></effectcontrol>
+
+        </section>
+
+        <section class="row">
+          <div class="col-md-12 control-row-title">
+            <h5>Helper Controls</h5>
+          </div>
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="clear">Clear Effects</label>
+              <br/>
+              <button id="clear" class="btn btn-default" name="clear">Clear</button>
+            </div>
+          </div>
+
+          <div class="col-sm-10 col-sm-push-1 col-md-4 col-md-push-0 control-container">
+            <div class="controls">
+              <label for="randomColors">Random Colors</label>
+              <br/>
+              <button id="startRandomColors" class="btn btn-default" name="randomColors">Start</button>
+              <button id="stopRandomColors" class="btn btn-default" name="stopRandomColors">Stop</button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+  <script src="./src/tags/effectControl.js" type="text/javascript"></script>
+  <script>
+    // declare our riot components
+    riot.mount('*');
+  </script>
+</body>
 </html>
