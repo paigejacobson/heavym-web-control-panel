@@ -10,14 +10,15 @@
     "type": "git",
     "url": "git+https://github.com/paigejacobson/nodeosc.git"
   },
-  "author": "",
+  "author": "Paige Jacobson & Justin Smith",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/paigejacobson/nodeosc/issues"
   },
   "homepage": "https://github.com/paigejacobson/nodeosc#readme",
   "dependencies": {
-    "live-server": "^1.2.0",
-    "osc-js": "^1.0.3"
+    "bootstrap": "^3.3.7",
+    "osc-js": "^1.0.3",
+    "riot": "^3.6.1"
   }
 }
